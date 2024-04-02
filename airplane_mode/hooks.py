@@ -2,7 +2,7 @@ app_name = "airplane_mode"
 app_title = "Airplane Mode"
 app_publisher = "Kiran Vijay Bramhane"
 app_description = "we are creating for you airline service"
-app_email = "kiransharma23@gmail.com"
+app_email = "kiranbramhane83@gmail.com"
 app_license = "mit"
 # required_apps = []
 
