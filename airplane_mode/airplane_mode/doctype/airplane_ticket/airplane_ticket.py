@@ -24,5 +24,5 @@ class AirplaneTicket(Document):
         random_letter = random.choice(string.ascii_uppercase[:5])
 
         # Combine the integer and letter to form the seat string
-        seat = f"{random_integer}{random_letter}"
+        seat = f"{random_letter}{random_integer}"
         self.seat = seat
