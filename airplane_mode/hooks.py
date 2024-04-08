@@ -4,6 +4,8 @@ app_publisher = "Kiran Vijay Bramhane"
 app_description = "we are creating for you airline service"
 app_email = "kiranbramhane83@gmail.com"
 app_license = "mit"
+
+
 # required_apps = []
 
 # Includes in <head>
@@ -121,6 +123,14 @@ app_license = "mit"
 # Document Events
 # ---------------
 # Hook on document methods and events
+
+doc_events = {
+    "Airplane Ticket": {
+        "validate": "airplane_mode.airplane_mode.validate_status"
+    }
+}
+
+
 
 # doc_events = {
 # 	"*": {
