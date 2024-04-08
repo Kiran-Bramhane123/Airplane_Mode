@@ -7,15 +7,19 @@
  "engine": "InnoDB",
  "field_order": [
   "airplane",
-  "destination_airport",
+  "column_break_rvuu",
+  "status",
+  "airport_details_section",
   "source_airport",
   "source_airport_code",
+  "column_break_ckfx",
+  "destination_airport",
   "destination_airport_code",
-  "column_break_rvuu",
+  "departure_details_section",
+  "date_of_departure",
   "duration",
-  "time_of_departure",
-  "status",
-  "date_of_departure"
+  "column_break_zkbb",
+  "time_of_departure"
  ],
  "fields": [
   {
@@ -83,6 +87,24 @@
    "fieldname": "destination_airport_code",
    "fieldtype": "Data",
    "label": "Destination Airport Code"
+  },
+  {
+   "fieldname": "airport_details_section",
+   "fieldtype": "Section Break",
+   "label": "Airport Details"
+  },
+  {
+   "fieldname": "column_break_ckfx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "departure_details_section",
+   "fieldtype": "Section Break",
+   "label": "Departure Details"
+  },
+  {
+   "fieldname": "column_break_zkbb",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -92,7 +114,7 @@
    "link_fieldname": "Flight"
   }
  ],
- "modified": "2024-04-06 22:47:17.297333",
+ "modified": "2024-04-08 14:21:40.977788",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",
