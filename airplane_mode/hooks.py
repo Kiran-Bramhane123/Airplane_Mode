@@ -124,12 +124,6 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-doc_events = {
-    "Airplane Ticket": {
-        "validate": "airplane_mode.airplane_mode.validate_status"
-    }
-}
-
 
 
 # doc_events = {

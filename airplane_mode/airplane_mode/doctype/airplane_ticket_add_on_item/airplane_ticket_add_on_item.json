@@ -21,7 +21,7 @@
   {
    "default": "0",
    "fieldname": "amount",
-   "fieldtype": "Data",
+   "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Amount",
    "options": "1"
@@ -30,7 +30,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-04-08 13:23:48.726048",
+ "modified": "2024-04-09 16:37:21.378371",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket Add-on Item",
