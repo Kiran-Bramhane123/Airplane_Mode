@@ -26,25 +26,4 @@
         {{ _("Book a Flight") }}
     </a>
 </div>
-
-
-<div class="container">
-    {% if flights %}
-        {% for flight in flights %}
-            <div class="mb-10">
-                <ul>
-                    <li><b>{{ _("Airline") }}</b>: {{ flight.airplane }}</li>
-                    <li>{{ flight.source_airport_code }} &rarr; {{ flight.destination_airport_code }}</li>
-                    <li>{{ flight.date_of_departure }} | {{ flight.time_of_departure }} | {{ flight.duration }}</li>
-                </ul>
-                <br>
-                <a class="btn btn-primary btn-md" href="/flights">
-                    {{ _("View Flight") }}
-                </a>
-            </div>
-        {% endfor %}
-    {% else %}
-        <p>{{ _("No flights found") }}</p>
-    {% endif %}
-</div>
 {% endblock %}

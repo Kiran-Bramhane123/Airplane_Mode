@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "prompt",
- "creation": "2024-04-06 11:58:18.464558",
+ "creation": "2024-04-10 10:33:23.183897",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -17,7 +17,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-06 11:59:10.967008",
+ "modified": "2024-04-10 10:34:12.625182",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket Add-on Type",
