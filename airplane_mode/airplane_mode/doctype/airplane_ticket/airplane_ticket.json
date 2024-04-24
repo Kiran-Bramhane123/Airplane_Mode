@@ -11,15 +11,21 @@
   "destination_airport",
   "source_airport_code",
   "destination_airport_code",
+  "amended_from",
+  "gate_number",
   "column_break_ftmm",
   "flight",
   "departure_date",
   "departure_time",
   "duration_of_flight",
-  "amended_from",
   "status",
-  "section_break_zaoe",
-  "facilities"
+  "seat",
+  "section_break_cqgj",
+  "add_ons",
+  "section_break_crwq",
+  "flight_price",
+  "column_break_nyme",
+  "total_amount"
  ],
  "fields": [
   {
@@ -31,6 +37,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "flight.source_airport",
    "fieldname": "source_airport",
    "fieldtype": "Link",
    "label": "Source Airport",
@@ -38,6 +45,7 @@
    "reqd": 1
   },
   {
+   "fetch_from": "flight.destination_airport",
    "fieldname": "destination_airport",
    "fieldtype": "Link",
    "label": "Destination Airport",
@@ -45,7 +53,7 @@
    "reqd": 1
   },
   {
-   "fetch_from": "source_airport.code",
+   "fetch_from": "flight.source_airport_code",
    "fieldname": "source_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -54,7 +62,7 @@
    "reqd": 1
   },
   {
-   "fetch_from": "destination_airport.code",
+   "fetch_from": "flight.destination_airport_code",
    "fieldname": "destination_airport_code",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -70,10 +78,11 @@
    "fieldname": "flight",
    "fieldtype": "Link",
    "label": "Flight ",
-   "options": "Airplane",
+   "options": "Airplane Flight",
    "reqd": 1
   },
   {
+   "fetch_from": "flight.date_of_departure",
    "fieldname": "departure_date",
    "fieldtype": "Date",
    "in_standard_filter": 1,
@@ -81,12 +90,14 @@
    "reqd": 1
   },
   {
+   "fetch_from": "flight.time_of_departure",
    "fieldname": "departure_time",
    "fieldtype": "Time",
    "label": "Departure Time ",
    "reqd": 1
   },
   {
+   "fetch_from": "flight.duration",
    "fieldname": "duration_of_flight",
    "fieldtype": "Duration",
    "label": "Duration of Flight ",
@@ -103,7 +114,7 @@
    "search_index": 1
   },
   {
-   "default": "Booked",
+   "default": "Boarded",
    "fieldname": "status",
    "fieldtype": "Select",
    "in_list_view": 1,
@@ -112,21 +123,51 @@
    "reqd": 1
   },
   {
-   "fieldname": "section_break_zaoe",
-   "fieldtype": "Section Break",
-   "label": "Facilities On"
+   "fieldname": "section_break_cqgj",
+   "fieldtype": "Section Break"
   },
   {
-   "fieldname": "facilities",
+   "fieldname": "add_ons",
    "fieldtype": "Table",
-   "label": "facilities",
-   "options": "Add-Ons"
+   "label": "add_ons",
+   "options": "Airplane Ticket Add-on Item"
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight Price",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "seat",
+   "fieldtype": "Data",
+   "label": "Seat",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_crwq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_nyme",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gate_number",
+   "fieldtype": "Link",
+   "label": "Gate Number",
+   "options": "Gate Number"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-04-05 19:11:23.345922",
+ "modified": "2024-04-22 12:45:36.043651",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Ticket",
@@ -142,6 +183,41 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Airport Authority Personnel",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Travel Agent",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Flight Crew Member",
    "share": 1,
    "write": 1
   }

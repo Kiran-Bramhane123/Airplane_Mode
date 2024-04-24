@@ -134,6 +134,14 @@ app_license = "mit"
 # 	}
 # }
 
+# # In your custom app or module's hooks.py file
+# doc_events = {
+#     "Airplane Ticket": {
+#         "before_insert": "airplane_mode.airplane_ticket.check_capacity"
+#     }
+# }
+
+
 # Scheduled Tasks
 # ---------------
 
@@ -231,3 +239,7 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+
+website_route_rules = [
+    {"from_route": "/view_details/<flight>", "to_route": "flights/view_details"},
+]

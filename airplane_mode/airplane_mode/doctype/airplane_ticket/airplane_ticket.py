@@ -1,36 +1,43 @@
 # Copyright (c) 2024, Kiran Vijay Bramhane and contributors
 # For license information, please see license.txt
-
 import frappe
-import random
 from frappe.model.document import Document
 from frappe import _
+import random
+import string
+from frappe.utils.data import cint
 
 class AirplaneTicket(Document):
     def validate(self):
-        self.calculate_total_amount()
+        unique_add_ons = {}
+        for add_on in self.add_ons:
+            key = add_on.item
+            if key not in unique_add_ons:
+                unique_add_ons[key] = add_on
 
-    def calculate_total_amount(self):
+        # Update add-ons with unique entries to find unique
+        self.set("add_ons", list(unique_add_ons.values()))
+
+        # Calculate total after removing duplicates
         total = 0
         for row in self.add_ons:
-            total += row.amount
-        frappe.msgprint(f"Total amount calculated: {total}")
-
-        # Assuming you have a field named 'total_amount' in your DocType
+            total += cint(row.amount)
         self.total_amount = total + self.flight_price
 
-    def before_submit(self):
-        print(self.status)
+        # Check capacity before submission
+        self.check_capacity()
+
+        # Check status before submission
         if self.status != "Boarded":
-            frappe.throw(_("Airplane ticket cannot be submitted unless the status is 'Boarded'."))
+            frappe.throw(_("Airplane Ticket cannot be submitted unless the status is 'Boarded'."))
 
-    class AirplaneTicket(Document):
-        def before_insert(self):
-            # Generate random seat number
-            seat_number = str(random.randint(10, 99)) + random.choice(['A', 'B', 'C', 'D', 'E'])
-            self.seat = seat_number
+    def check_capacity(self):
+        if self.flight:
+            # Fetch the count of existing tickets for the flight
+            ticket_count = frappe.db.count("Airplane Ticket", filters={"flight": self.flight})
 
-    class AirplaneFlight(Document):
-        def on_submit(self):
-            # Set status to Completed after document submission
-            self.status = "Completed"
+            flight = frappe.get_doc("Airplane Flight", self.flight)
+            if flight:
+                airplane = frappe.get_doc("Airplane", flight.airplane)
+                if ticket_count >= airplane.capicity:
+                    frappe.throw("Number of tickets exceeds airplane capacity. Cannot create Airplane Ticket.")
